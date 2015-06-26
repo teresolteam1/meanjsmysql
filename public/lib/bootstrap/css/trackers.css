@@ -1,0 +1,129 @@
+/*css*/
+
+@font-face {
+    font-family: 'myFirstFont';
+    src: url('Open_Sans/OpenSans-Regular.ttf');
+}
+
+* {
+    font-family: 'myFirstFont';
+}
+
+.fixedWidth {
+     background-image: url("Images/backImage.png");
+     background-position: top , top 5% right 25%, top;
+     background-repeat:no-repeat;
+     background-size: 1024px 1300px;
+     /*max-width: none !important;*/
+     width: 1052px;
+
+     }
+/*================================
+  HEADER STYLES
+==================================*/
+header {
+    background-color:#00829E;
+       
+}
+
+    header .logo-wrapper img {
+      max-height: 42px;
+    }
+
+    header .menu-links {
+        padding-top:7px;
+        padding-bottom: 2px;
+        float: right;
+        width:40.33333333%;
+
+}
+
+ header .menu-links a {
+        color:white;
+        font-size:12px;
+        margin:10px;
+        text-decoration: none;
+        
+    }
+
+    .dashboard_div{
+        background-color:#F2F2F2; 
+        max-height: 60px;
+    }
+
+.dashboard_div h3{
+text-align: left;
+    margin-top: 15px;
+    color:#888888;
+    }
+
+.dashboard_div a{
+
+margin-top: 15px;
+text-decoration: none;
+float: right;
+    }
+    .menu{
+        margin-top: 15px;
+      margin-left:1px;
+    }
+
+  hr {
+ 
+    border-top: 1px solid #999999;
+    width: 1024px;
+margin-top: 7px;
+}
+
+.graph1{
+
+
+margin-left: 20px;
+
+}
+
+.graphs{
+max-height: 12px;
+margin-top: 1%;
+margin-left: 1%;
+
+}
+.nav_graph
+{
+margin-top: 1%;
+margin-left: 7%;
+margin-right: -2%;
+ 
+
+}
+.worldmap{
+    margin-top: -29%;
+    margin-left: 3%;
+
+}
+
+
+/********************************************/
+.pages_class{
+margin-left: 1.5%;
+}
+.pages_class2{
+margin-left: 1%;
+}/*
+.pages_class3{
+
+    margin-left: 2%;
+}*/
+/***********************************************/
+.heat_tab
+{
+    margin-left: 2%;
+}
+.stats_tab
+{
+    margin-left: -1%;
+}
+.proerty_tab
+{
+    margin-left: -1%;
+}

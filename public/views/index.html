@@ -1,0 +1,54 @@
+<script  src="lib/jquery/TrackerSiteJS.js"></script>
+<link rel='stylesheet' href='/lib/bootstrap/css/TrackerSiteCSS.css'>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.8/angular-animate.min.js"></script>
+    <script type="text/javascript" src="http://ci.angularjs.org/job/angularui-bootstrap/ws/dist/ui-bootstrap-tpls-0.8.0-SNAPSHOT.js"></script>
+    <script type="text/javascript" src= "//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
+   
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+<div data-ng-include="'views/header.html'" data-role="navigation" class="navbar navbar-inverse navbar-fixed-top"></div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 margin">
+			
+		</div>
+	</div>
+	<div class="row vertical-offset-100">
+		<div class="col-md-4 col-md-offset-4">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Please sign in</h3>
+				</div>
+				<div class="panel-body"  ng-controller="AuthenticationController">
+					
+					<form class="signin form-horizontal"  >
+						<fieldset>
+							<div class="form-group" >
+								<input type="text" id="email" name="email" class="form-control" data-ng-model="credentials.email" placeholder="Username" />
+							</div>
+							<div class="form-group">
+								<input type="password" id="password" name="password" class="form-control" data-ng-model="credentials.password" placeholder="Password" />
+							</div>
+							<div class="checkbox">
+								<label>
+									<input name="remember" type="checkbox" value="Remember Me" /> Remember Me
+								</label>
+							</div>
+							<div class="check-element animate-hide" ng-show="loginrequest">
+								<button   ng-click="signin()" class="btn btn-lg btn-success btn-block">Sign in</button>
+							</div>
+							<div data-ng-show="error" ng-show="errorshow" class="text-center text-danger">
+								<strong data-ng-bind="error"></strong>
+							</div>
+							<div class="check-element animate-hide" ng-hide="loginrequest">
+							<pre>{{ counter }}/{{ max }} = {{ (counter/max)*100 }}%</pre>
+							 <progressbar value="dynamic" ng-Animate="true"></progressbar>
+							<!-- <progressbar class="progress-striped active" animate="true" max="100" value="50" type="success"></progressbar> -->
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

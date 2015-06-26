@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+include ../includes/head
+html.
+	<head>
+		<script type="text/javascript" src="lib/jquery/jquery-1.11.3.min.js"></script>
+		
+		<script type="text/javascript" src="lib/jquery/TrackerSiteJS.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+		
+		
+		
+		<link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+		<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		
+		<title></title>
+		
+		
+	</head>
+	<body>
+		
+		<script type="text/javascript" src="lib/jquery/TweenLite.min.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 margin">
+					
+				</div>
+			</div>
+			<div class="row vertical-offset-100">
+				<div class="col-md-4 col-md-offset-4">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Please sign in</h3>
+						</div>
+						<div class="panel-body"  ng-controller="AuthenticationController">
+							
+							<form data-ng-submit="signin()" class="signin form-horizontal" method="post" action="/users/session">
+								<fieldset>
+									<div class="form-group" >
+										<input type="text" id="username" name="email" class="form-control" data-ng-model="credentials.username" placeholder="Username" >
+									</div>
+									<div class="form-group">
+										<input type="password" id="password" name="password" class="form-control" data-ng-model="credentials.password" placeholder="Password" >
+									</div>
+									<div class="checkbox">
+										<label>
+											<input name="remember" type="checkbox" value="Remember Me"> Remember Me
+										</label>
+									</div>
+									<div class="check-element animate-hide" ng-show="loginrequest">
+										<button  type="submit" class="btn btn-lg btn-success btn-block">Sign in</button>
+									</div>
+									<div data-ng-show="error" ng-show="errorshow" class="text-center text-danger">
+										<strong data-ng-bind="error"></strong>
+									</div>
+									<div class="check-element animate-hide" ng-hide="loginrequest">
+										<progressbar class="progress-striped active" animate="true" max="100" value="progressValue" type="success">
+										</progressbar>
+									</div>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

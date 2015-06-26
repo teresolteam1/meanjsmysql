@@ -1,0 +1,81 @@
+body{
+   
+	background-color: #444;
+    background: url(Images/pinlayer2.png),url(Images/pinlayer1.png),url(Images/back.png);    
+}
+
+.vertical-offset-100{
+    padding-top:100px;
+}
+
+.margin {
+
+	margin-top: 5%;
+}
+/*
+.progress-striped {
+  height: 20px;
+  padding: 1px;
+  background-color: #f7f7f7;
+  border: 1px solid #eeeeee;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.progress__bar {
+  display: block;
+  height: 100%;
+  background: #5bc0de;
+}
+.progress__label {
+  float: right;
+  padding: 0 2px;
+  color: #ffffff;
+  font-size: 12px;
+}
+.progress--radius {
+  border-radius: 2px;
+}
+.progress--round {
+  border-radius: 1000px;
+}
+.progress--radius .progress__bar,
+.progress--round .progress__bar {
+  border-radius: inherit;
+}
+.progress--small {
+  height: 15px;
+}
+.progress--large {
+  height: 10px;
+}
+.progress--success .progress__bar {
+  background-color: #43ac6a;
+}
+.progress--alert .progress__bar {
+  background-color: #f04124;
+}
+.progress-striped .progress__bar {
+  background-size: 40px 40px;
+}*/
+/*.animate-hide {
+  -webkit-transition: all linear 0.1s;
+  transition: all linear 0.1s;
+  line-height: 20px;
+  opacity: 1;
+  padding: 10px;
+  border: 1px solid black;
+  background: white;
+   display:block!important;
+}
+
+.animate-hide.ng-hide {
+  line-height: 0;
+  opacity: 0;
+  padding: 0 10px;
+}
+
+.check-element {
+  padding: 10px;
+  border: 1px solid white;
+  background: white;
+}*/
