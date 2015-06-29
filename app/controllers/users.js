@@ -86,7 +86,7 @@ exports.session = function(req, res,next) {
           res.status(400).send(err);
         } else {
           console.log(info);
-          res.json(user,info);
+          res.json(user, info);
         }
       });
     }
