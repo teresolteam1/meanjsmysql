@@ -1,21 +1,32 @@
+// var knex = require('knex');
+// var Bookshelf = require('bookshelf');
+// var config = {
+   // host: '192.168.0.202',  // your host
+   // user: 'root', // your database user
+   // password: 'admin123', // your database password
+   // database: 'tracker1',
+   // charset: 'UTF8_GENERAL_CI'
+// };
 
-var Bookshelf = require('bookshelf');
-var config = {
-   host: '192.168.0.202',  // your host
+// var DB = Bookshelf.initialize({
+//    client: 'mysql', 
+//    connection: config
+// });
+
+// module.exports.DB = DB;
+
+var knex = require('knex')({
+  client: 'mysql',
+  connection: {
+       host: '192.168.0.202',  // your host
    user: 'root', // your database user
    password: 'admin123', // your database password
    database: 'tracker1',
    charset: 'UTF8_GENERAL_CI'
-};
-
-var DB = Bookshelf.initialize({
-   client: 'mysql', 
-   connection: config
+  }
 });
-
+var DB = require('bookshelf')(knex);
 module.exports.DB = DB;
-
-
 
 
 

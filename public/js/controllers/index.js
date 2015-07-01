@@ -1,8 +1,9 @@
 // angular.module('users', ['ui.bootstrap','countTo']);
 
-angular.module('mean.system').controller('AuthenticationController', ['$scope', '$http', '$timeout', '$location', 'Global',
-    function($scope, $http, $timeout, $location, Global) {
+angular.module('mean.system').controller('AuthenticationController', ['$scope', '$http', '$timeout', '$location', 'Global', 'tracker',
+    function($scope, $http, $timeout, $location, Global, tracker) {
         $scope.global = Global;
+        $scope.tracker = tracker;
         // $scope.global = Global;
         // $scope.loginrequest = true;
         // $scope.progressValue = 50;
@@ -28,8 +29,10 @@ if(!$scope.global.user) $location.path('/');
    //     console.log($scope.global.user)
 
         $scope.signin = function() {
-
-
+var asd = 45;
+var age = $scope.tracker.calculateAge(asd);
+console.log(asd);
+console.log(age);
             // $scope.loginrequest = false;
 
             // var amt = 100;
