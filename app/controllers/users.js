@@ -4,6 +4,8 @@
 var db = require('../../config/sequelize');
 var passport = require('passport');
 var bcrypt = require('bcrypt-nodejs');
+var Model = require('../models/User');
+var _ = require('underscore');
 
 /**
  * Auth callback
@@ -50,43 +52,51 @@ exports.signout = function(req, res) {
     res.redirect('/');
 };
 
+exports.location = function(rs){
+console.log("i am in location function");
+
+console.log(rs.user);
+
+new Model.tracker({account_id: rs.user.id}).fetch().then(function(data){
+           // var user1 = data1;
+           console.log(data.attributes.tracker_id);
+new Model.tracker_data({tracker_id1: data.attributes.tracker_id}).fetch().then(function(data1){
+
+            console.log(data1);
+            console.log(data1.attributes.tracker_data_location);
+            //return done(null, user, user1);
+          });
+});
+           // new Model.person({person_id: user.person_id}).fetch().then(function(data1){
+           //  var user1 = data1;
+           //  console.log("in passport");
+           // return done(null, user, user1);
+          //});
+};
 /**
  * Session
  */
 exports.session = function(req, res,next) {
-  // console.log("hey em in session function");
-  // passport.authenticate('local', { successRedirect: '/intax',
-  //                         failureRedirect: '/'}, function(err, user, info) {
-  //     if(err) {
-  //        return res.render('/users/signup', {title: 'Sign In', errorMessage: err.message});
-  //     } 
 
-  //     if(!user) {
-  //        return res.render('/', {title: 'Sign In', errorMessage: info.message});
-  //     }
-  //     return req.logIn(user, function(err) {
-  //        if(err) {
-  //           return res.render('/', {title: 'Sign In', errorMessage: err.message});
-  //        } else {
-  //           return res.redirect('/intax');
-  //        }
-  //     });
-  //  })(req, res, next);
     passport.authenticate('local', function(err, user, info) {
       
     if (err || !user) {
+      console.log("here");
       res.status(405).send(info);
+      
     } else {
-      // Remove sensitive data before login
-      // user.password = undefined;
-      // user.salt = undefined;
 
       req.login(user, function(err) {
         if (err) {
           res.status(400).send(err);
         } else {
-          console.log(info);
-          res.json(user, info);
+          //console.log(user);
+
+//var has = _.extend(user, info);
+        //  var has = user + info;
+        console.log(info);
+        console.log(user);
+        res.send(user);
         }
       });
     }
@@ -104,10 +114,7 @@ exports.create = function(req, res) {
 
     user.provider = 'local';
     user.salt = user.makeSalt();
-    //user.account_password = bcrypt.hashSync(req.body.password);
-   // console.log(user.salt);
     user.account_password = user.encryptPassword(req.body.account_password);
-    //console.log(user.account_password);
     console.log('New User (local) : { id: ' + user.id + ' username: ' + user.username + ' }');
     
     user.save().success(function(){

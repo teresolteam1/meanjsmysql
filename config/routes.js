@@ -17,6 +17,7 @@ exports.init = function(app, passport, auth) {
     // Setting up the users api
     app.post('/users', users.create);
 app.post('/users/session',users.session);
+app.post('/users/location',users.location);
     // Setting the local strategy route
     // app.post('/users/session', passport.authenticate('local', {
     //     failureRedirect: '/signin',

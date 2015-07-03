@@ -9,9 +9,21 @@ var person = DB.Model.extend({
    idAttribute: 'person_id',
 });
 
+var tracker = DB.Model.extend({
+   tableName: 'tracker',
+   idAttribute: 'tracker_id',
+});
+
+var tracker_data = DB.Model.extend({
+   tableName: 'tracker_data',
+   idAttribute: 'tracker_data_id',
+});
+
 module.exports = {
    accounts: accounts,
-   person: person
+   person: person,
+   tracker: tracker,
+   tracker_data: tracker_data
 };
 // /**
 // 	* User Model

@@ -30,9 +30,8 @@ if(!$scope.global.user) $location.path('/');
 
         $scope.signin = function() {
 var asd = 45;
-var age = $scope.tracker.calculateAge(asd);
-console.log(asd);
-console.log(age);
+
+
             // $scope.loginrequest = false;
 
             // var amt = 100;
@@ -57,10 +56,13 @@ console.log(age);
     // }
                $timeout(function() {
             $http.post('/users/session', $scope.credentials).success(function(response) { // If successful we assign the response to the global user model
-console.log("in success section");
+        console.log("in success section");
+console.log(response.id);
+                console.log(response.account_name);
                 $scope.global.user = response;
+                var age = $scope.tracker.calculateAge(response.id);
                 // console.log(response2);
-                 console.log($scope.global.user)
+               //  console.log($scope.global.user.id);
                 // if ($scope.global.user1) 
                 $location.path('/intax');
                 // And redirect to the index page
