@@ -6,24 +6,36 @@ var accounts = DB.Model.extend({
 });
 var person = DB.Model.extend({
    tableName: 'person',
-   idAttribute: 'person_id',
+   idAttribute: 'id',
 });
 
 var tracker = DB.Model.extend({
    tableName: 'tracker',
-   idAttribute: 'tracker_id',
+   idAttribute: 'id',
 });
 
 var tracker_data = DB.Model.extend({
    tableName: 'tracker_data',
-   idAttribute: 'tracker_data_id',
+   idAttribute: 'id',
 });
-
+var abc = DB.Model.extend({
+   tableName: 'abc',
+   idAttribute: 'abc_id',
+});
+var roles = DB.Model.extend({
+   tableName: 'roles',
+   idAttribute: 'role_id',
+});
+var xyz = DB.Model.extend({
+   tableName: 'xyz',
+   idAttribute: 'xyz_id',
+});
 module.exports = {
    accounts: accounts,
    person: person,
    tracker: tracker,
-   tracker_data: tracker_data
+   tracker_data: tracker_data,
+   abc: abc
 };
 // /**
 // 	* User Model

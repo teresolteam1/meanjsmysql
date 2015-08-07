@@ -2,64 +2,71 @@
  * Module dependencies.
  */
 var should = require('should'),
-    app = require('../../../server'),
-    mongoose = require('mongoose'),
-    User = mongoose.model('User');
+    app = require('../../../app');
+var db = require('../../../app/models/User');
+
 
 //Globals
-var user;
+var account;
+var account2;
 
 //The tests
 describe('<Unit Test>', function() {
-    describe('Model User:', function() {
+    describe('Model test:', function() {
         before(function(done) {
-            user = new User({
-                name: 'Full name',
-                email: 'test@test.com',
-                username: 'user',
-                password: 'password'
-            });
-            user2 = new User({
-                name: 'Full name',
-                email: 'test@test.com',
-                username: 'user',
-                password: 'password'
-            });
-
             done();
         });
 
-        describe('Method Save', function() {
-            it('should begin with no users', function(done) {
-                User.find({}, function(err, users) {
-                    users.should.have.length(0);
+        describe('account model', function() {
+            it('should be able to connect with accounts model', function(done) {
+                new db.accounts().fetch().then(function(use) {
                     done();
+
                 });
             });
-
-            it('should be able to save whithout problems', function(done) {
-                user.save(done);
-            });
-
-            it('should fail to save an existing user again', function(done) {
-                user.save();
-                return user2.save(function(err) {
-                    should.exist(err);
+        });
+        describe('person model', function() {
+            it('should be able to connect with person model', function(done) {
+                new db.person().fetch().then(function(use) {
                     done();
+
                 });
             });
-
-            it('should be able to show an error when try to save without name', function(done) {
-                user.name = '';
-                return user.save(function(err) {
-                    should.exist(err);
+        });
+        describe('tracker model', function() {
+            it('should be able to connect with tracker model', function(done) {
+                new db.tracker().fetch().then(function(use) {
                     done();
+
+                });
+            });
+        });
+        describe('tracker_data model', function() {
+            it('should be able to connect with tracker_data model', function(done) {
+                new db.tracker_data().fetch().then(function(use) {
+                    done();
+
+                });
+            });
+        });
+        describe('model roles', function() {
+            it('should be able to connect with roles model', function(done) {
+                new db.role().fetch().then(function(use) {
+                    done();
+
+                });
+            });
+        });
+        describe('model abc', function() {
+            it('should be able to connect with abc models', function(done) {
+                new db.abc().fetch().then(function(use) {
+                    done();
+
                 });
             });
         });
 
         after(function(done) {
-            User.remove().exec();
             done();
         });
     });

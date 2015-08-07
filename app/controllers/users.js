@@ -57,10 +57,10 @@ console.log("i am in location function");
 
 console.log(rs.user);
 
-new Model.tracker({account_id: rs.user.id}).fetch().then(function(data){
+new Model.tracker({id: rs.user.id}).fetch().then(function(data){
            // var user1 = data1;
-           console.log(data.attributes.tracker_id);
-new Model.tracker_data({tracker_id1: data.attributes.tracker_id}).fetch().then(function(data1){
+           console.log(data.attributes.id);
+new Model.tracker_data({tracker_id1: data.attributes.id}).fetch().then(function(data1){
 
             console.log(data1);
             console.log(data1.attributes.tracker_data_location);

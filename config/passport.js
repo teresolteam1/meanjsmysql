@@ -20,7 +20,7 @@ passport.deserializeUser(function(account_name, done) {
    new Model.accounts({account_name: account_name}).fetch().then(function(user) {
 var data = user.toJSON();
           if(user){
-          new Model.person({person_id: user.attributes.person_id}).fetch().then(function(user1) {
+          new Model.person({id: user.attributes.person_id}).fetch().then(function(user1) {
           var data1 = user1.toJSON();
           var alldata = _.extend(data, data1);
          // console.log(data);
@@ -71,7 +71,7 @@ passwordField: 'password'
          if(!bcrypt.compareSync(account_password, user.account_password)) {console.log("in passport");
             return done(null, false, {message: 'Invalid password'});
          } else {
-           new Model.person({person_id: user.person_id}).fetch().then(function(data1){
+           new Model.person({id: user.person_id}).fetch().then(function(data1){
             var user1 = data1.toJSON();
             //console.log("in passport");
             var has = _.extend(user1, user);
